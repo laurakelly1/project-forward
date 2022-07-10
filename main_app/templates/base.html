@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,28 +11,30 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
     <title>Project Forward</title>
 </head>
+
 <body>
     <header class="navbar-fixed">
         <nav>
-          <div class="nav-wrapper">
-            <ul>
-              <li>
-                <a href="/" class="left brand-logo">Project Forward</a>
-              </li>
-            </ul>
-            <ul class="right">
-              <li><a href="{% url 'about' %}">About</a></li>
-              <li><a href="{% url 'projects_create' %}">Create Project</a></li>
-              <li><a href="{% url 'index' %}">View All My Projects</a></li>
-            </ul>
-          </div>
+            <div class="nav-wrapper">
+                <ul>
+                    <li>
+                        <a href="/" class="left brand-logo">Project Forward</a>
+                    </li>
+                </ul>
+                <ul class="right">
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'projects_create' %}">Create Project</a></li>
+                    <li><a href="{% url 'index' %}">View All My Projects</a></li>
+                </ul>
+            </div>
         </nav>
-      </header>
-      <main class="container">{% block content %} {% endblock %}</main>
-      <footer class="page-footer">
+    </header>
+    <main class="container">{% block content %} {% endblock %}</main>
+    <footer class="page-footer">
         <div class="right">
-          All Rights Reserved, &copy; 2022 Project Forward &nbsp;
+            All Rights Reserved, &copy; 2022 Project Forward &nbsp;
         </div>
-      </footer>
+    </footer>
 </body>
+
 </html>
