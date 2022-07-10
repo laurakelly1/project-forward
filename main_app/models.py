@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Color(models.Model):
@@ -25,6 +26,7 @@ class Project(models.Model):
     github = models.URLField('github link', blank=True)
 
     color_scheme = models.ManyToManyField(ColorScheme, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def get_absolute_url(self):
         return reverse('detail', kwargs={'project_id': self.id})
