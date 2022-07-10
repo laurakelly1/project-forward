@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Project Details</h1>
+
+<div class="card">
+    <div class="card-content">
+      <span class="card-title">
+        {{project.name}}</span>
+        <p>Developer: {{ project.developer}}</p>
+        <p>Description: {{ project.description }}</p>
+        <p>Date Published: {{ project.date_published }}</p>
+        <button><a href='{{ project.live_site }}' target="blank">Live Site</a></button>
+        <button><a href='{{ project.github }}' target="blank">GitHub</a></button>
+    </div>
+    <div class="card-action">
+    </div>
+</div>
+
+{% endblock %}
