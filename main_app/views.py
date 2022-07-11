@@ -57,7 +57,7 @@ def signup(request):
 
 class ProjectCreate(LoginRequiredMixin, CreateView):
     model = Project
-    fields = ['name', 'developer', 'description', 'date_published', 'live_site', 'github']
+    fields = ['name', 'developer', 'description', 'date_published', 'live_site', 'github', 'color_scheme']
     success_url = '/projects'
 
     def form_valid(self, form):
@@ -66,7 +66,7 @@ class ProjectCreate(LoginRequiredMixin, CreateView):
 
 class ProjectUpdate(LoginRequiredMixin, UpdateView):
     model = Project
-    fields = ['name', 'developer', 'description', 'date_published', 'live_site', 'github']
+    fields = ['name', 'developer', 'description', 'date_published', 'live_site', 'github', 'color_scheme']
 
 class ProjectDelete(LoginRequiredMixin, DeleteView):
     model = Project

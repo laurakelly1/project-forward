@@ -1,7 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
 <h1>Project Details</h1>
-
 <div class="card">
   <div class="card-content">
     <span class="card-title">
@@ -17,4 +16,20 @@
     <a href="{% url 'projects_delete' project.id %}">Delete</a>
   </div>
 </div>
+
+<h4>Color Scheme</h4>
+{% for scheme in project.color_scheme.all %}
+<div class="card">
+  <a href="{% url 'color_scheme_detail' scheme.id %}">
+    <div class="card-content scheme-sample">
+      <div class="card-title">{{ scheme.name }}</div>
+      <div class="colours-sample">
+        {% for color in scheme.color.all %}
+        <div style='background-color: {{color.hex}}; width: 30px; height: 30px;'></div>
+        {% endfor %}
+      </div>
+    </div>
+  </a>
+</div>
+{% endfor %}
 {% endblock %}
