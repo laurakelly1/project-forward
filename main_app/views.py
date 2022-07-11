@@ -40,7 +40,7 @@ def signup(request):
 
 class ProjectCreate(LoginRequiredMixin, CreateView):
     model = Project
-    fields = '__all__'
+    fields = ['name', 'developer', 'description', 'date_published', 'live_site', 'github']
     success_url = '/projects'
 
     def form_valid(self, form):
