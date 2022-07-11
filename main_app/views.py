@@ -5,6 +5,8 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+
+from main_app.forms import ColorSchemeForm
 from .models import Project, Color, ColorScheme
 # Create your views here.
 
