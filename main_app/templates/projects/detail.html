@@ -23,9 +23,9 @@
   <a href="{% url 'color_scheme_detail' scheme.id %}">
     <div class="card-content scheme-sample">
       <div class="card-title">{{ scheme.name }}</div>
-      <div class="colours-sample">
+      <div class="colors-sample">
         {% for color in scheme.color.all %}
-        <div style='background-color: {{color.hex}}; width: 30px; height: 30px;'></div>
+        <div class='color-tile' style='background-color: {{color.hex}};'></div>
         {% endfor %}
       </div>
     </div>

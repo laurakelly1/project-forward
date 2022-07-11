@@ -6,14 +6,10 @@ from django.contrib.auth.models import User
 class Color(models.Model):
     name = models.CharField(max_length=100)
     hex = models.CharField(max_length=7, default='#000000')
-
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
-
-    def get_absolute_url(self):
-        return reverse('color_detail', kwargs={'color_id': self.id})
 
 class ColorScheme(models.Model):
     name = models.CharField(max_length=100)

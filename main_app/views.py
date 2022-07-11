@@ -1,3 +1,4 @@
+from urllib import request
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import login
@@ -39,7 +40,8 @@ def color_detail(request, color_id):
 @login_required
 def color_scheme_detail(request, scheme_id):
     scheme = ColorScheme.objects.get(id=scheme_id)
-    return render(request, 'colors/color_scheme_detail.html', {"scheme": scheme})
+    color = Color.objects.filter(user=request.user)
+    return render(request, 'colors/color_scheme_detail.html', {"scheme": scheme, "color": color})
 
 def signup(request):
     error_message = ''
@@ -75,6 +77,7 @@ class ProjectDelete(LoginRequiredMixin, DeleteView):
 class ColorsCreate(LoginRequiredMixin, CreateView):
     model = Color
     fields = ['name', 'hex']
+    success_url = '/colors'
 
     def form_valid(self, form):
         form.instance.user = self.request.user
