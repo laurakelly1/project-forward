@@ -3,6 +3,7 @@
 <h1>Color Schemes</h1>
 
 <h3>Color Schemes</h3>
+<a href="{% url 'color_scheme_create' %}" class="btn">Create Color Scheme</a>
 {% for scheme in schemes %}
 <div class="card">
     <a href="{% url 'color_scheme_detail' scheme.id %}">
@@ -12,15 +13,31 @@
     </a>
 </div>
 {% endfor %}
-<hr/>
+<hr />
 <h3>Colors</h3>
-{% for color in colors %}
-<div class="card">
-    <a href="{% url 'color_detail' color.id %}">
-        <div class="card-content">
-            <span class="card-title">{{ color.name }}</span>
-        </div>
-    </a>
-</div>
-{% endfor %}
+<a href="{% url 'colors_create' %}" class="btn">Create Color</a>
+<table class="striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Hex Number</th>
+            <th>Sample</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for color in colors %}
+        <tr>
+            <td>{{color.name}}</td>
+            <td>{{color.hex}}</td>
+            <td>
+                <div style='background-color: {{color.hex}}; width: 30px; height: 30px;'></div>
+            </td>
+            <td><a href="{% url 'color_update' color.id %}">Update</a></td>
+            <td><a href="{% url 'color_delete' color.id %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}

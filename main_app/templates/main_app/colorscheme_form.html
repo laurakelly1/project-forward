@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block content %}
+{% if object %}
+<h1>Edit <span class="teal-text">{{object.name}}</span></h1>
+{% else %}
+<h1>Create Color Scheme</h1>
+{% endif %}
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Submit!" class="btn" />
+</form>
+
+<h4>Don't see your color?</h4>
+<a href="{% url 'colors_create' %}" class="btn">Create Color</a>
+
+<script>
+    var selectEl = document.getElementById('id_color');
+    M.FormSelect.init(selectEl);
+</script>
+{% endblock %}

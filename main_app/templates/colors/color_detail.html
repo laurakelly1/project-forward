@@ -9,6 +9,8 @@
     <p>HEX NUMBER: {{ color.hex }}</p>
   </div>
   <div class="card-action">
+    <a href="{% url 'color_update' color.id %}">Update</a>
+    <a href="{% url 'color_delete' color.id %}">Delete</a>
   </div>
 </div>
 {% endblock %}

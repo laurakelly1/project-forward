@@ -66,8 +66,43 @@ class ProjectCreate(LoginRequiredMixin, CreateView):
 
 class ProjectUpdate(LoginRequiredMixin, UpdateView):
     model = Project
-    fields = '__all__'
+    fields = ['name', 'developer', 'description', 'date_published', 'live_site', 'github']
 
 class ProjectDelete(LoginRequiredMixin, DeleteView):
     model = Project
     success_url = '/projects'
+
+class ColorsCreate(LoginRequiredMixin, CreateView):
+    model = Color
+    fields = ['name', 'hex']
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+class ColorUpdate(LoginRequiredMixin, UpdateView):
+    model = Color
+    fields = ['name', 'hex']
+    success_url = '/colors'
+
+class ColorDelete(LoginRequiredMixin, DeleteView):
+    model = Color
+    success_url = '/colors'
+
+class ColorSchemeCreate(LoginRequiredMixin, CreateView):
+    model = ColorScheme
+    fields = ['name', 'color']
+    success_url = '/colors'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+class ColorSchemeUpdate(LoginRequiredMixin, UpdateView):
+    model = ColorScheme
+    fields = ['name', 'color']
+    success_url = '/colors'
+
+class ColorSchemeDelete(LoginRequiredMixin, DeleteView):
+    model = ColorScheme
+    success_url = '/colors'

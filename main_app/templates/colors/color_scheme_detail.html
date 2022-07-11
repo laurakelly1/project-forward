@@ -8,6 +8,28 @@
       {{scheme.name}}</span>
   </div>
   <div class="card-action">
+    <a href="{% url 'color_scheme_update' scheme.id %}">Update</a>
+    <a href="{% url 'color_scheme_delete' scheme.id %}">Delete</a>
   </div>
+  <table class="striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Hex Number</th>
+            <th>Sample</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for color in scheme.color.all %}
+        <tr>
+            <td><a href="{% url 'color_detail' color.id %}">{{color.name}}</a></td>
+            <td>{{color.hex}}</td>
+            <td>
+                <div style='background-color: {{color.hex}}; width: 30px; height: 30px;'></div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 </div>
 {% endblock %}

@@ -12,14 +12,20 @@ class Color(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('color_detail', kwargs={'color_id': self.id})
+
 class ColorScheme(models.Model):
     name = models.CharField(max_length=100)
     color = models.ManyToManyField(Color, blank=True)
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    
+
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('color_scheme_detail', kwargs={'color_scheme_id': self.id})
 
 class Project(models.Model):
     name = models.CharField(max_length=100)
