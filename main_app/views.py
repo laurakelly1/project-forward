@@ -24,6 +24,23 @@ def projects_detail(request, project_id):
     project = Project.objects.get(id=project_id)
     return render(request, 'projects/detail.html', {"project": project})
 
+@login_required
+def colors_index(request):
+    colors = Color.objects.filter(user=request.user)
+    schemes = ColorScheme.objects.filter(user=request.user)
+    context = {"colors": colors, "schemes": schemes}
+    return render(request, 'colors/colors_index.html', context )
+
+@login_required
+def color_detail(request, color_id):
+    color = Color.objects.get(id=color_id)
+    return render(request, 'colors/color_detail.html', {"color": color})
+
+@login_required
+def color_scheme_detail(request, scheme_id):
+    scheme = ColorScheme.objects.get(id=scheme_id)
+    return render(request, 'colors/color_scheme_detail.html', {"scheme": scheme})
+
 def signup(request):
     error_message = ''
     if request.method == 'POST':

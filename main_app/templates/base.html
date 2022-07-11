@@ -27,6 +27,7 @@
                     {% if user.is_authenticated %}
                     <li><a href="{% url 'projects_create' %}">Create Project</a></li>
                     <li><a href="{% url 'index' %}">View All My Projects</a></li>
+                    <li><a href="{% url 'color_index' %}">View all colors</a></li>
                     <li><a href="{% url 'logout' %}">Log Out</a></li>
                     {% else %}
                     <li><a href="{% url 'signup' %}">Sign Up</a></li>

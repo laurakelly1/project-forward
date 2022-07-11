@@ -7,6 +7,8 @@ class Color(models.Model):
     name = models.CharField(max_length=100)
     hex = models.CharField(max_length=7, default='#000000')
 
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
     def __str__(self):
         return self.name
 
@@ -14,6 +16,8 @@ class ColorScheme(models.Model):
     name = models.CharField(max_length=100)
     color = models.ManyToManyField(Color, blank=True)
 
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    
     def __str__(self):
         return self.name
 

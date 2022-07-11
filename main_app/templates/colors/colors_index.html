@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Color Schemes</h1>
+
+<h3>Color Schemes</h3>
+{% for scheme in schemes %}
+<div class="card">
+    <a href="{% url 'color_scheme_detail' scheme.id %}">
+        <div class="card-content">
+            <span class="card-title">{{ scheme.name }}</span>
+        </div>
+    </a>
+</div>
+{% endfor %}
+<hr/>
+<h3>Colors</h3>
+{% for color in colors %}
+<div class="card">
+    <a href="{% url 'color_detail' color.id %}">
+        <div class="card-content">
+            <span class="card-title">{{ color.name }}</span>
+        </div>
+    </a>
+</div>
+{% endfor %}
+{% endblock %}
