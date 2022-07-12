@@ -1,6 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 {% if object %}
-<h1>Edit <span class="teal-text">{{object.name}}</span></h1>
+<h1>Edit <span class="blue-grey-text">{{object.name}}</span></h1>
+<p>Editing this color will provide the same edit to all connected projects containing this color.</p>
 {% else %}
 <h1>Create Color</h1>
 {% endif %}
@@ -10,6 +11,6 @@
         {{ form.as_table }}
     </table>
     <br/>
-    <input type="submit" value="Submit!" class="btn" />
+    <input type="submit" value="Submit!" class="btn blue-grey darken-3" />
 </form>
 {% endblock %}

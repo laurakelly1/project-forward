@@ -3,7 +3,7 @@
 <h1>Color Schemes</h1>
 
 <h3>Color Schemes</h3>
-<a href="{% url 'color_scheme_create' %}" class="btn">Create Color Scheme</a>
+<a href="{% url 'color_scheme_create' %}" class="btn blue-grey darken-3">Create Color Scheme</a>
 {% for scheme in schemes %}
 <div class="card">
     <a href="{% url 'color_scheme_detail' scheme.id %}">
@@ -20,7 +20,7 @@
 {% endfor %}
 <hr />
 <h3>Colors</h3>
-<a href="{% url 'colors_create' %}" class="btn">Create Color</a>
+<a href="{% url 'colors_create' %}" class="btn blue-grey darken-3">Create Color</a>
 <table class="striped">
     <thead>
         <tr>

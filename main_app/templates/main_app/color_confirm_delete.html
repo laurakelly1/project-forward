@@ -2,12 +2,12 @@
 <h1>Delete Color</h1>
 
 <h4>Are you sure you want to delete 
-    <span class="teal-text">{{ object.name }}</span>?
+    <span class="blue-grey-text">{{ object.name }}</span>?
 </h4>
 
 <form action="" method="POST">
     {% csrf_token %}
-    <input type="submit" value="Yes - Delete Please" class="btn" />
+    <input type="submit" value="Yes - Delete Please" class="btn blue-grey darken-3" />
     <a href="{% url 'color_detail' color.id %}">Cancel</a>
 </form>
 {% endblock %}

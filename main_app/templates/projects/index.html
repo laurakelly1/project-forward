@@ -1,9 +1,10 @@
 {% extends 'base.html' %} {% block content %}
 
 <h1>Projects</h1>
-<a href="{% url 'projects_create' %}" class="btn">Create Project</a>
+<a href="{% url 'projects_create' %}" class="btn blue-grey darken-3">Create Project</a>
+<div class="project-cards">
 {% for project in projects %}
-<div class="card">
+<div class="card project-card">
     <a href="{% url 'detail' project.id %}">
         <div class="card-content">
             <span class="card-title">{{ project.name }}</span>
@@ -11,4 +12,5 @@
     </a>
 </div>
 {% endfor %}
+</div>
 {% endblock %}

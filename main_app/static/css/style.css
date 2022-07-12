@@ -1,3 +1,10 @@
+/* keyframes */
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 body {
   display: flex;
   min-height: 100vh;
@@ -5,9 +12,53 @@ body {
 }
 
 main {
-  flex: 1 0 auto;  
+  flex: 1 0 auto;
+}
+/* Navbar */
+
+.logo {
+  display: inline-block;
+  height: 100%;
+}
+.logo>img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.logo>p {
+  transform: translateY(50%);
+}
+.brand-logo {
+  margin-left: 80px;
+}
+/* Home page */
+.home-page {
+  width: 100%;
+  background-color: #b0bec5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.color-wheel {
+  display: flex;
+  justify-content: center;
+  margin: 2%;
+  width: 20vw;
+  animation: spin 4s ease-in-out 1;
 }
 
+/* Projects */
+
+.project-cards {
+  display: flex;
+  flex-flow: row wrap;
+}
+.project-card {
+  width: 20vw;
+  margin: 10px;
+  height: 20vh;
+}
 /* Color schemes */
 
 .scheme-sample {
@@ -29,4 +80,5 @@ main {
 footer {
   padding-top: 0;
   text-align: right;
+  background-color: #7180AC;
 }

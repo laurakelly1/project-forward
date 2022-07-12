@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from main_app.forms import ColorSchemeForm
+from main_app.forms import ColorSchemeForm, ProjectsForm
 from .models import Project, Color, ColorScheme
 # Create your views here.
 
@@ -60,10 +60,15 @@ def signup(request):
     return render(request, 'registration/signup.html', context)
 
 class ProjectCreate(LoginRequiredMixin, CreateView):
-    model = Project
-    fields = ['name', 'developer', 'description', 'date_published', 'live_site', 'github', 'color_scheme']
+    template_name = 'main_app/project_form.html'
+    form_class = ProjectsForm
     success_url = '/projects'
 
+    def get_form_kwargs(self):
+        kwargs = super(ProjectCreate, self).get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
+        
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
@@ -94,19 +99,43 @@ class ColorDelete(LoginRequiredMixin, DeleteView):
     model = Color
     success_url = '/colors'
 
+# class ColorSchemeCreate(LoginRequiredMixin, CreateView):
+#     model = ColorScheme
+#     fields = ['name', 'color']
+#     success_url = '/colors'
+
+#     def form_valid(self, form):
+#         form.instance.user = self.request.user
+#         return super().form_valid(form)
+
 class ColorSchemeCreate(LoginRequiredMixin, CreateView):
-    model = ColorScheme
-    fields = ['name', 'color']
+    template_name = 'main_app/colorscheme_form.html'
+    form_class = ColorSchemeForm
     success_url = '/colors'
 
+    def get_form_kwargs(self):
+        kwargs = super(ColorSchemeCreate, self).get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
+        
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
 class ColorSchemeUpdate(LoginRequiredMixin, UpdateView):
     model = ColorScheme
-    fields = ['name', 'color']
+    template_name = 'main_app/colorscheme_form.html'
+    form_class = ColorSchemeForm
     success_url = '/colors'
+
+    def get_form_kwargs(self):
+        kwargs = super(ColorSchemeUpdate, self).get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
+        
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 class ColorSchemeDelete(LoginRequiredMixin, DeleteView):
     model = ColorScheme

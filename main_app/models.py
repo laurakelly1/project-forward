@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django.shortcuts import render
 
 # Create your models here.
 class Color(models.Model):
@@ -22,7 +23,7 @@ class ColorScheme(models.Model):
 
     def get_absolute_url(self):
         return reverse('color_scheme_detail', kwargs={'color_scheme_id': self.id})
-
+   
 class Project(models.Model):
     name = models.CharField(max_length=100)
     developer = models.CharField(max_length=100, blank=True)

@@ -1,7 +1,41 @@
-{% extends 'base.html' %} {% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
 
-<h1>Welcome to Project Forward</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>Project Forward</title>
+</head>
 
-<img src='/main_app/static/images/color_wheel.png' alt="color_wheel"/>
+<body>
+    <main class="container home-page">
+        <img class='color-wheel'
+                src='https://github.com/laurakelly1/project-forward/blob/main/main_app/static/images/color_wheel.png?raw=true'
+                alt="color_wheel" />
+        <div>
+            <h1>Project Forward</h1>
+            {% if user.is_authenticated %}
+            <a href="{% url 'index' %}" class="btn blue-grey darken-3">All Projects</a>
+            <a href="{% url 'color_index' %}" class="btn blue-grey darken-3">All Colors</a>
+            {% else %}
+            <a href="{% url 'signup' %}" class="btn blue-grey darken-3">Sign Up</a>
+            <a href="{% url 'login' %}" class="btn blue-grey darken-3">Log In</a>
+            {% endif %}
+        </div>
 
-{% endblock %}
+
+    </main>
+    <footer class="page-footer blue-grey lighten-2">
+        <div class="right">
+            All Rights Reserved, &copy; 2022 Project Forward &nbsp;
+        </div>
+    </footer>
+
+</body>
+
+</html>
