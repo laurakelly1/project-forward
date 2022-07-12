@@ -75,8 +75,19 @@ class ProjectCreate(LoginRequiredMixin, CreateView):
 
 class ProjectUpdate(LoginRequiredMixin, UpdateView):
     model = Project
-    fields = ['name', 'developer', 'description', 'date_published', 'live_site', 'github', 'color_scheme']
+    template_name = 'main_app/project_form.html'
+    form_class = ProjectsForm
+    success_url = '/projects'
 
+    def get_form_kwargs(self):
+        kwargs = super(ProjectUpdate, self).get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
+        
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+        
 class ProjectDelete(LoginRequiredMixin, DeleteView):
     model = Project
     success_url = '/projects'
