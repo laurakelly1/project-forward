@@ -87,7 +87,7 @@ class ProjectUpdate(LoginRequiredMixin, UpdateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
-        
+
 class ProjectDelete(LoginRequiredMixin, DeleteView):
     model = Project
     success_url = '/projects'
@@ -109,15 +109,6 @@ class ColorUpdate(LoginRequiredMixin, UpdateView):
 class ColorDelete(LoginRequiredMixin, DeleteView):
     model = Color
     success_url = '/colors'
-
-# class ColorSchemeCreate(LoginRequiredMixin, CreateView):
-#     model = ColorScheme
-#     fields = ['name', 'color']
-#     success_url = '/colors'
-
-#     def form_valid(self, form):
-#         form.instance.user = self.request.user
-#         return super().form_valid(form)
 
 class ColorSchemeCreate(LoginRequiredMixin, CreateView):
     template_name = 'main_app/colorscheme_form.html'

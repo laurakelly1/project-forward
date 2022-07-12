@@ -9,6 +9,7 @@
     <table>
         {{ form.as_table }}
     </table>
+    <br/>
     <input type="submit" value="Submit!" class="btn blue-grey darken-3" />
 </form>
 <script>
@@ -20,6 +21,9 @@
         autoClose: true
     });
     var selectEl = document.getElementById('id_color_scheme');
+    M.FormSelect.init(selectEl);
+
+    var selectEl = document.getElementById('id_project_type');
     M.FormSelect.init(selectEl);
 </script>
 {% endblock %}

@@ -4,6 +4,11 @@ from django.contrib.auth.models import User
 from django.shortcuts import render
 
 # Create your models here.
+PROJECT_TYPE = (
+    ('P', 'Personal Project'),
+    ('O', 'Other'),
+)
+
 class Color(models.Model):
     name = models.CharField(max_length=100)
     hex = models.CharField(max_length=7, default='#000000')
@@ -31,6 +36,7 @@ class Project(models.Model):
     date_published = models.DateField('date published', blank=True, null=True)
     live_site = models.URLField('live site', blank=True)
     github = models.URLField('github link', blank=True)
+    project_type = models.CharField(max_length=1, choices=PROJECT_TYPE, default=PROJECT_TYPE[0][0])
 
     color_scheme = models.ManyToManyField(ColorScheme, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)

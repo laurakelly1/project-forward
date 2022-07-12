@@ -14,7 +14,7 @@ class ColorSchemeForm(ModelForm):
 class ProjectsForm(ModelForm):
     class Meta:
         model = Project
-        fields = ['name', 'developer', 'description', 'date_published', 'live_site', 'github', 'color_scheme']
+        fields = ['name', 'developer', 'description', 'date_published', 'live_site', 'github', 'color_scheme', 'project_type']
 
     def __init__(self, *args, **kwargs):
         user = kwargs.pop('user', None)
