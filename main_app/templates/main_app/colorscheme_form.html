@@ -1,6 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 {% if object %}
 <h1>Edit <span class="blue-grey-text">{{object.name}}</span></h1>
+<p>Editing this color scheme will provide the same edit to all connected projects containing this color scheme.</p>
 {% else %}
 <h1>Create Color Scheme</h1>
 {% endif %}

@@ -24,7 +24,7 @@
     <tbody>
         {% for color in scheme.color.all %}
         <tr>
-            <td><a href="{% url 'color_detail' color.id %}">{{color.name}}</a></td>
+            <td>{{color.name}}</td>
             <td>{{color.hex}}</td>
             <td>
                 <div style='background-color: {{color.hex}}; width: 30px; height: 30px;'></div>

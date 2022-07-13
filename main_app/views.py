@@ -62,7 +62,6 @@ def signup(request):
 class ProjectCreate(LoginRequiredMixin, CreateView):
     template_name = 'main_app/project_form.html'
     form_class = ProjectsForm
-    success_url = '/projects'
 
     def get_form_kwargs(self):
         kwargs = super(ProjectCreate, self).get_form_kwargs()
@@ -77,7 +76,6 @@ class ProjectUpdate(LoginRequiredMixin, UpdateView):
     model = Project
     template_name = 'main_app/project_form.html'
     form_class = ProjectsForm
-    success_url = '/projects'
 
     def get_form_kwargs(self):
         kwargs = super(ProjectUpdate, self).get_form_kwargs()

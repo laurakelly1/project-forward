@@ -1,23 +1,22 @@
 {% extends 'base.html' %} {% block content %}
-
-<h1>Projects</h1>
+<br/>
 <a href="{% url 'projects_create' %}" class="btn blue-grey darken-3">Create Project</a>
 <div class="key">
-    <div class="card blue lighten-5" style="width: 3vw; height: 3vh;"></div>
-    <p>Your projects</p>
-    <div class="card green lighten-5" style="width: 3vw; height: 3vh;"></div>
+    <div class="card blue lighten-2" style="width: 3vw; height: 3vh;"></div>
+    <p>Your Projects</p>
+    <div class="card green lighten-2" style="width: 3vw; height: 3vh;"></div>
     <p>Others</p>
 </div>
 <div class="project-cards">
     {% for project in projects %}
     {% if project.project_type == 'P' %}
-    <div class="card project-card blue lighten-5">
+    <div class="card project-card blue lighten-2">
         {% else %}
-        <div class="card project-card green lighten-5">
+        <div class="card project-card green lighten-2">
             {% endif %}
             <a href="{% url 'detail' project.id %}">
                 <div class="card-content">
-                    <span class="card-title black-text">{{ project.name }}</span>
+                    <span class="card-title white-text">{{ project.name }}</span>
                 </div>
             </a>
         </div>
