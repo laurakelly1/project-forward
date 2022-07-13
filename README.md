@@ -14,7 +14,7 @@ At Project Forward, we've designed the perfect app to log all your creative tool
 
 ## Screenshots
 <p align="center">
-<img src=""/>
+<img src="https://github.com/laurakelly1/project-forward/blob/main/main_app/static/images/screenshots.jpg?raw=true"/>
 </p>
 
 ## Getting Started
