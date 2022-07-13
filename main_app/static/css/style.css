@@ -9,14 +9,17 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Barlow', sans-serif;
 }
 
 main {
   flex: 1 0 auto;
 }
 /* Navbar */
-
+.nav-heading {
+  margin-left: 50px;
+  font-size: 30px
+}
 .logo {
   display: inline-block;
   height: 60%;
@@ -25,9 +28,6 @@ main {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-}
-.brand-logo {
-  margin-left: 50px;
 }
 /* Home page */
 .home-page {
@@ -62,7 +62,11 @@ main {
   height: 20vh;
 }
 .project-preview {
-  height: 100%;
+  display: block;
+}
+.color-tile-line {
+  width: 100%;
+  height: 20px;
 }
 /* Color schemes */
 
@@ -117,4 +121,10 @@ footer {
   text-transform: uppercase;
   margin: 0 5px;
   border-radius: 5%;
+}
+
+@media only screen and (max-width: 650px) {
+  .nav-heading {
+    display: none;
+  }
 }

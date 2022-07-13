@@ -11,8 +11,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
@@ -20,21 +19,22 @@
 </head>
 
 <body>
-    <header class="navbar-fixed ">
+    <header class="navbar" >
         <nav>
-            <div class="nav-wrapper blue-grey lighten-2">
+            <div class="nav-wrapper blue-grey lighten-2 navbar1">
                 <ul>
                     <li>
                         <a href="/" class="left logo">
                             <img class='logo'
                                 src='https://github.com/laurakelly1/project-forward/blob/main/main_app/static/images/color_wheel.png?raw=true'
                                 alt="color_wheel" />
-                            <div class="left brand-logo">Project Forward</div>
+                            <div class="left nav-heading">Project Forward</div>
+                            
                         </a>
                     </li>
+                    
                 </ul>
                 <ul class="right">
-                    <li><a href="{% url 'about' %}">About</a></li>
                     {% if user.is_authenticated %}
                     <li><a href="{% url 'index' %}">All Projects</a></li>
                     <li><a href="{% url 'color_index' %}">All Color Schemes</a></li>
@@ -54,5 +54,11 @@
         </div>
     </footer>
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+  });
 
+</script>
 </html>

@@ -28,10 +28,15 @@
   </div>
 
   <div class="col s6">
-    <div class="card project-preview">
+    {% for scheme in project.color_scheme.all %}
+    <div class="card project-preview" style='background-color: {{scheme.background.all.first.hex}};'>
       <div class="card-content">
-        <h4>{{ project.name }}</h4>
+        <h4 style='color: {{scheme.heading.all.first.hex}};'>{{ project.name }}</h4>
         <p>{{ project.description }}</p>
+        {% for color in scheme.color.all %}
+        <div class='color-tile-line' style='background-color: {{color.hex}};'></div>
+        {% endfor %}
+        {% endfor %}
       </div>
     </div>
   </div>
@@ -44,11 +49,17 @@
     <a href="{% url 'color_scheme_detail' scheme.id %}">
       <div class="card-content scheme-sample">
         <div class="card-title">{{ scheme.name }}</div>
-        <div class="colors-sample">
-          {% for color in scheme.color.all %}
-          <div class='color-tile' style='background-color: {{color.hex}};'></div>
-          {% endfor %}
-        </div>
+                    <div class="colors-sample">
+                {% for color in scheme.background.all %}
+                <div class='color-tile' style='background-color: {{color.hex}};'></div>
+                {% endfor %}
+                {% for color in scheme.heading.all %}
+                <div class='color-tile' style='background-color: {{color.hex}};'></div>
+                {% endfor %}
+                {% for color in scheme.color.all %}
+                <div class='color-tile' style='background-color: {{color.hex}};'></div>
+                {% endfor %}
+            </div>
       </div>
     </a>
   </div>

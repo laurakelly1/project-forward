@@ -19,7 +19,9 @@ class Color(models.Model):
 
 class ColorScheme(models.Model):
     name = models.CharField(max_length=100)
-    color = models.ManyToManyField(Color, blank=True)
+    background = models.ManyToManyField(Color, blank=True, related_name='background')
+    heading = models.ManyToManyField(Color, blank=True, related_name='heading')
+    color = models.ManyToManyField(Color, blank=True, related_name='color')
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 

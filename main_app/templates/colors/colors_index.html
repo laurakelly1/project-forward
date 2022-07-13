@@ -7,6 +7,12 @@
         <div class="card-content scheme-sample">
             <div class="card-title">{{ scheme.name }}</div>
             <div class="colors-sample">
+                {% for color in scheme.background.all %}
+                <div class='color-tile' style='background-color: {{color.hex}};'></div>
+                {% endfor %}
+                {% for color in scheme.heading.all %}
+                <div class='color-tile' style='background-color: {{color.hex}};'></div>
+                {% endfor %}
                 {% for color in scheme.color.all %}
                 <div class='color-tile' style='background-color: {{color.hex}};'></div>
                 {% endfor %}
@@ -17,7 +23,7 @@
 {% endfor %}
 <hr />
 <a href="{% url 'colors_create' %}" class="btn blue-grey darken-3">Create Color</a>
-<table class="striped">
+<table class="highlight">
     <thead>
         <tr>
             <th>Name</th>

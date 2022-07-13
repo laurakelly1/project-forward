@@ -9,29 +9,53 @@
     <a href="{% url 'color_scheme_update' scheme.id %}">Update</a>
     <a href="{% url 'color_scheme_delete' scheme.id %}">Delete</a>
   </div>
-  <table class="striped">
+  <table class="highlight">
     <thead>
-        <tr>
-            <th>Name</th>
-            <th>Hex Number</th>
-            <th>Sample</th>
-            <th>Update</th>
-            <th>Delete</th>
-        </tr>
+      <h6>All Colors</h6>
+      <tr>
+        <th>Name</th>
+        <th>Hex Number</th>
+        <th>Sample</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
     </thead>
     <tbody>
-        {% for color in scheme.color.all %}
-        <tr>
-            <td>{{color.name}}</td>
-            <td>{{color.hex}}</td>
-            <td>
-            <div class='color-tile-sample' style='background-color: {{color.hex}}; width: 30px; height: 30px;'></div>
-            </td>
-            <td><a href="{% url 'color_update' color.id %}">Update</a></td>
-            <td><a href="{% url 'color_delete' color.id %}">Delete</a></td>
-        </tr>
-        {% endfor %}
+      {% for color in scheme.background.all %}
+      <tr>
+        <td>{{color.name}}</td>
+        <td>{{color.hex}}</td>
+        <td>
+          <div class='color-tile-sample' style='background-color: {{color.hex}}; width: 30px; height: 30px;'></div>
+        </td>
+        <td><a href="{% url 'color_update' color.id %}">Update</a></td>
+        <td><a href="{% url 'color_delete' color.id %}">Delete</a></td>
+      </tr>
+      {% endfor %}
+      {% for color in scheme.heading.all %}
+      <tr>
+        <td>{{color.name}}</td>
+        <td>{{color.hex}}</td>
+        <td>
+          <div class='color-tile-sample' style='background-color: {{color.hex}}; width: 30px; height: 30px;'></div>
+        </td>
+        <td><a href="{% url 'color_update' color.id %}">Update</a></td>
+        <td><a href="{% url 'color_delete' color.id %}">Delete</a></td>
+      </tr>
+      {% endfor %}
+      {% for color in scheme.color.all %}
+      <tr>
+        <td>{{color.name}}</td>
+        <td>{{color.hex}}</td>
+        <td>
+          <div class='color-tile-sample' style='background-color: {{color.hex}}; width: 30px; height: 30px;'></div>
+        </td>
+        <td><a href="{% url 'color_update' color.id %}">Update</a></td>
+        <td><a href="{% url 'color_delete' color.id %}">Delete</a></td>
+      </tr>
+      {% endfor %}
     </tbody>
-</table>
+  </table>
+
 </div>
 {% endblock %}
