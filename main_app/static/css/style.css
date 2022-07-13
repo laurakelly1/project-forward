@@ -87,3 +87,29 @@ footer {
   text-align: right;
   background-color: #7180AC;
 }
+
+/* Color */
+.color-form-bottom {
+  display: flex;
+  justify-content: center;
+}
+.color-generator {
+  display: flex;
+  flex-flow: column;
+  width: 60%;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+.color-box {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+.box {
+  text-align: center;
+  display: flex;
+  padding: 40px 0px;
+  text-transform: uppercase;
+  margin: 0 5px;
+}

@@ -1,16 +1,57 @@
 {% extends 'base.html' %} {% block content %}
 {% if object %}
-<h1>Edit <span class="blue-grey-text">{{object.name}}</span></h1>
+<h4>Edit <span class="blue-grey-text">{{object.name}}</span></h4>
 <p>Editing this color will provide the same edit to all connected projects containing this color.</p>
 {% else %}
-<h1>Create Color</h1>
+<h4>Create Color</h4>
 {% endif %}
 <form action="" method="post">
     {% csrf_token %}
     <table>
         {{ form.as_table }}
     </table>
-    <br/>
+    <br />
     <input type="submit" value="Submit!" class="btn blue-grey darken-3" />
 </form>
+
+<div class="color-form-bottom">
+<div class="color-generator">
+    <h5>Need inspiration?</h5>
+
+    <div class="color-box">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <div class="btn blue-grey darken-3 generator-btn">Generate colors</div>
+</div>
+</div>
+<script>
+    const random_hex = () => {
+        let n = (Math.random() * 0Xfffff * 1000000).toString(16);
+        return '#' + n.slice(0, 6);
+    };
+    let button = document.querySelector('.generator-btn');
+    let boxes = document.querySelectorAll('.box');
+    let n = ""
+    button.addEventListener('click', function () {
+        for (let i = 0; i < boxes.length; i++) {
+            n = random_hex()
+            boxes[i].style.backgroundColor = n;
+            boxes[i].style.width = '100px';
+            boxes[i].style.height = '100px';
+            boxes[i].style.display = 'inline-block';
+            boxes[i].innerHTML = n;
+        }
+    })
+    for (let i = 0; i < boxes.length; i++) {
+        n = random_hex()
+        boxes[i].style.backgroundColor = n;
+        boxes[i].style.width = '100px';
+        boxes[i].style.height = '100px';
+        boxes[i].style.display = 'inline-block'; 
+        boxes[i].innerHTML = n;
+    }
+</script>
 {% endblock %}
