@@ -110,13 +110,13 @@ footer {
 .color-generator {
   display: flex;
   flex-flow: column;
-  width: 60%;
   align-items: center;
   justify-content: center;
   margin: 0;
 }
 .color-box {
   display: flex;
+  flex-flow: row wrap;
   justify-content: center;
   padding: 10px;
 }
@@ -125,12 +125,17 @@ footer {
   display: flex;
   padding: 40px 0px;
   text-transform: uppercase;
-  margin: 0 5px;
+  margin: 5px;
   border-radius: 5%;
 }
 
 @media only screen and (max-width: 650px) {
   .nav-heading {
+    display: none;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .logo {
     display: none;
   }
 }
