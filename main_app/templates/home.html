@@ -26,6 +26,7 @@
             {% if user.is_authenticated %}
             <a href="{% url 'index' %}" class="btn blue-grey darken-3">All Projects</a>
             <a href="{% url 'color_index' %}" class="btn blue-grey darken-3">All Colors</a>
+            <li><a href="{% url 'logout' %}">Log Out</a></li>
             {% else %}
             <a href="{% url 'signup' %}" class="btn blue-grey darken-3">Sign Up</a>
             <a href="{% url 'login' %}" class="btn blue-grey darken-3">Log In</a>
