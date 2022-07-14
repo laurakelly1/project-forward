@@ -31,12 +31,13 @@ main {
 }
 /* Home page */
 .home-page {
-  width: 100%;
+  width: 100vw;
   background-color: #b0bec5;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
+  margin: 0;
 }
 .color-wheel {
   display: flex;
