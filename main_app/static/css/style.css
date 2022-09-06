@@ -97,6 +97,13 @@ main {
 .color-tile-sample {
   border-radius: 50%;
 }
+
+.all-colors-title {
+  padding-left: 3%;
+}
+
+
+ /* Footer */
 footer {
   padding-top: 0;
   text-align: right;
